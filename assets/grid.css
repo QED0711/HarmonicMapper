@@ -1,0 +1,338 @@
+:root{
+    --color-1: #8A9AA2;
+    --color-2: #476576;
+    --color-3: #FFEDD7;
+    --color-4: white;
+    --color-background: #FFEDD7;
+    --color-input-borders: #BCC4C9;
+}
+
+body{
+    background: var(--color-background);
+}
+
+/* .main{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+} */
+
+/* Container++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.container{
+    /* font-size: 40px; */
+    display: grid;
+    /* grid-template: repeat(3, 1fr), repeat(6, 1fr); */
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(6, auto); 
+   
+    grid-template-areas: 
+    "header header"
+    "ui options"
+    "ui notation"
+    "ui notation"
+    "ui info"
+    "footer footer";
+
+    grid-gap: 5px;
+    margin: auto auto;
+    /* min-width: 500px; */
+    max-width: 1100px;
+}
+
+.container div{
+    border-radius: 8px;
+}
+
+
+
+/* HEADER++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.header{
+    grid-area: header;
+    background: var(--color-2);
+
+    padding-left: 5px; 
+    color: var(--color-4)
+}
+
+/* UI++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.ui{
+    grid-area:ui;
+    background: var(--color-1);
+
+    display: grid;
+    grid-template: repeat(2, 1fr), repeat(7, 1fr);
+
+    grid-template-areas: 
+    "intervalScheme button"
+    "min max"
+    "contains notContains"
+    "bass soprano"
+    "transposition transposition"
+    "vectors vectors";
+
+    padding: 5px;
+}
+
+.ui div{
+    padding: 2px;
+}
+
+.ui label{
+    display: block;
+}
+
+.ui div input{
+    border: 2px solid var(--color-input-borders);
+    /* border-color: var(--color-input-borders);  */
+    border-radius: 5px;
+}
+
+    .intervalScheme{
+        grid-area: intervalScheme;
+    }
+
+    .getChords{
+        grid-area: button;
+    }
+
+    .minLength{
+        grid-area: min;
+    }
+
+    .maxLength{
+        grid-area: max;
+    }
+
+    .contains{
+        grid-area: contains;
+    }
+
+    .notContains{
+        grid-area: notContains;
+    }
+
+    .bass{
+        grid-area: bass;
+    }
+
+    .soprano{
+        grid-area: soprano;
+    }
+
+    .transposition{
+        grid-area: transposition;
+    }
+
+    .vectors{
+        grid-area: vectors; 
+        display: grid;
+
+        grid-template: repeat(6, 1fr), 1fr;
+        grid-template-areas: 
+        "vector0 vector1"
+        "vector2 vector3"
+        "vector4 vector5"
+    }
+
+        .vector0{
+            grid-area: vector0;
+        }
+
+        .vector1{
+            grid-area: vector1;
+        }
+        
+        .vector2{
+            grid-area: vector2;
+        }
+        .vector3{
+            grid-area: vector3;
+        }
+        .vector4{
+            grid-area: vector4;
+        }
+        .vector5{
+            grid-area: vector5;
+        }
+
+
+
+/* OPTIONS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.options{
+    grid-area: options;
+    background: var(--color-1);
+
+    display: grid;
+    grid-template: 5px 1fr 1fr 1fr, repeat(4, 1fr);
+    grid-template-areas: 
+    "dtTitle octaveTitle currentChord"
+    "dt0 octave index"
+    "dt1 pitchTitle quickIndex"
+    "dt2 pitch quickIndexNumber";
+
+    padding: 5px;
+}
+
+    .options h4{
+        margin: 5px 0;
+    }
+
+    .dtTitle{
+        grid-area: dtTitle;
+    }
+
+    .displayType0{
+        grid-area: dt0;
+    }
+
+    .displayType1{
+        grid-area: dt1;
+    }
+
+    .displayType2{
+        grid-area: dt2;
+    }
+
+    .octaveTitle{
+        grid-area: octaveTitle;
+    }
+
+    .octave{
+        grid-area: octave;
+    }
+
+    .pitchTitle{
+        grid-area: pitchTitle;
+    }
+
+    .pitch{
+        grid-area: pitch;
+    }
+
+    .currentChord{
+        grid-area: currentChord;
+    }
+
+    .indexButtons{
+        grid-area: index;
+    }
+
+    .quickIndex{
+        grid-area: quickIndex;
+    }
+
+    .quickIndexNumber{
+        grid-area: quickIndexNumber;
+    }
+
+
+
+    
+
+/* INFO++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.info{
+    grid-area: info;
+    background: var(--color-1);
+    padding: 0 5px;
+
+    display: grid;
+
+    grid-template: 1fr, repeat(5, 1fr);
+
+    grid-template-areas:
+    "validChords index length notes vector"; 
+}
+
+    .validChordsInfo{
+        grid-area: validChords;
+    }
+
+    .indexInfo{
+        grid-area: index;
+    }
+
+    .lengthInfo{
+        grid-area: length;
+    }
+
+    .notesInfo{
+        grid-area: notes;
+    }
+
+    .vectorInfo{
+        grid-area: vector;
+    }
+
+
+
+/* NOTATION++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* #notation{
+    grid-area: notation;
+    background: var(--color-4);
+    min-width:100px;
+} */
+
+#notation-container{
+    grid-area: notation;
+    background: var(--color-4);
+    min-width:451;
+    text-align: center;
+}
+
+    #notation-container div {
+        /* margin: 0, 90%; */
+        padding: 75px 10px 0 10px;
+        /* min-width: auto; */
+    }
+
+/* FOOTER++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.footer{
+    grid-area: footer;
+    background: var(--color-2);
+}
+
+
+/* Media Queries+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+@media only screen and (max-width: 900px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+        grid-template-areas: 
+        "header"
+        "ui"
+        "options"
+        "notation"
+        "info"
+        "footer";
+        min-width: 451px;
+        margin:0 auto;
+        
+    }
+
+    .ui .vectors{
+        grid-template: repeat(2, 1fr), repeat(3, 1fr);
+
+        grid-template-areas: 
+        "vector0 vector1 vector2"
+        "vector3 vector4 vector5";
+    }
+
+    .info{
+        grid-template-rows: repeat(2 1fr);
+        grid-template-columns: repeat(3 1fr);
+        grid-template-areas: 
+        "validChords index length"
+        "notes notes vector";
+
+        text-align: center;
+    }
+}

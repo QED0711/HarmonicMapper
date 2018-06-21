@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="./assets/grid.css">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Document</title>
+</head>
+<body>
+
+
+        <div class="container">
+        
+            <div class="header">
+                <h3>About:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna et pharetra pharetra. Ipsum a arcu cursus vitae congue mauris rhoncus. Suspendisse faucibus interdum posuere lorem ipsum dolor. Laoreet sit amet cursus sit. Ipsum dolor sit amet consectetur adipiscing. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Justo laoreet sit amet cursus sit. Vel quam elementum pulvinar etiam non quam. </p>
+            </div>
+            
+            <div class="ui">
+                <div class="intervalScheme">
+                    <label for="intervalScheme">Interval Scheme</label>
+                    <input type="text" name="intervalScheme" id="intervalScheme" value="3 4">
+                </div>
+
+                <div class="getChords" id="submit">
+                    <button>Find Chords</button>
+                </div>
+
+                <div class="minLength">
+                    <label for="minLength">Min</label>
+                    <input type="number" name="minLength" id="minLength" value="2" min="2" max="11">
+                </div>
+
+                <div class="maxLength">
+                    <label for="maxLength">Max</label>
+                    <input type="number" name="maxLength" id="maxLength" value ="11" min="2" max="11">
+                </div>
+
+                <div class="contains">
+                    <label for="contains">Includes:</label>
+                    <input type="text" name="contains" id="contains">
+                </div>
+
+                <div class="notContains">
+                    <label for="contains">Excludes:</label>
+                    <input type="text" name="notContains" id="notContains">
+                </div>
+
+                <div class="bass">
+                    <label for="bass">Bass:</label>
+                    <input type="text" name="bass" id="bass">
+                </div>
+
+                <div class="soprano">
+                    <label for="soprano">Soprano:</label>
+                    <input type="text" name="soprano" id="soprano">
+                </div>
+
+                <div class="transposition">
+                    <span>
+                        <input type="checkbox" name="transposition" id="transposition">
+                        <label for="tranposition" style="display:inline">Check Tranpositions:</label>
+                    </span>
+                    
+                </div>
+
+                <div class="vectors">
+                    
+                    <div class="vector0">
+                        <label for="vector0">m2/M7</label>
+                        <span>
+                            <select class="vectorSelect" name="vector0" id="vector-0">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector0Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+                   
+                    <div class="vector1">
+                        <label for="vector1">M2/m7</label>
+                        <span>
+                            <select class="vectorSelect" name="vector1" id="vector-1">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector1Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+                   
+                    <div class="vector2">
+                        <label for="vector2">m3/M6</label>
+                        <span>
+                            <select class="vectorSelect" name="vector2" id="vector-2">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector2Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+                   
+                    <div class="vector3">
+                        <label for="vector3">M3/m6</label>
+                        <span>
+                            <select class="vectorSelect" name="vector3" id="vector-3">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector3Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+                   
+                    <div class="vector4">
+                        <label for="vector4">P5/P5</label>
+                        <span>
+                            <select class="vectorSelect" name="vector4" id="vector-4">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector4Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+                   
+                    <div class="vector5">
+                        <label for="vector5"><sup>o</sup>4/<sup>+</sup>5</label>
+                        <span>
+                            <select class="vectorSelect" name="vector5" id="vector-5">
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="exactly">Exactly</option>
+                                <option value="lessThan">Less Than</option>
+                                <option value="atLeast">At Least</option>
+                            </select>
+                            <input type="number" class="vectorValue" id="vector5Value" value="0" min="0" max="6">
+                        </span>
+                    </div>
+
+
+                </div>
+                
+            </div>
+
+            <div class="options">
+               <!-- display type ========================================================================== -->
+                <div class="dtTitle">
+                    <h4>Display Type;</h4>
+                </div>
+
+                <span class="displayType0">
+                    <input type="radio" name="displayType" class="display-radio" id="type-expanded" checked>
+                    <label for="displayType">Expanded</label>
+                </span>
+
+                <span class="displayType1">
+                    <input type="radio" name="displayType" class="display-radio" id="type-simplified">
+                    <label for="displayType">Reduced</label>
+                </span>
+
+                <span class="displayType2">
+                    <input type="radio" name="displayType" class="display-radio" id="type-scale">
+                    <label for="displayType">Scale</label>
+                </span>
+
+                <!-- octave ============================================================================= -->
+                <div class="octaveTitle">
+                    <h4>Octave Offset</h4>
+                </div>
+               
+                <div class="octave">
+                    <input type="number" name="octave" id="octave" value="4" min="0" max="6">
+                </div>
+
+                <div class="pitchTitle">
+                    <h4>Pitch Offset</h4>
+                </div>
+
+                <div class="pitch">
+                    <input type="number" name="pitch" id="pitch" value="0" min="0" max="11">
+                </div>
+
+                <!-- currentChord prev next================================================================= -->
+                
+                <div class="currentChord">
+                    <h4>Navigation</h4>
+                </div>
+
+                <div class="indexButtons">
+                    <span>
+                        <button id="previous">Previous</button>
+                        <button id="next">Next</button> 
+                    </span>
+                </div>
+               
+                <div class="quickIndex">
+                    <h4>Jump to Chord </h4>
+                </div>
+
+                <div class="quickIndexNumber">
+                    <input type="number" value="0">
+                </div>
+                
+            </div>
+
+            <!-- INFO======================================================================================== -->
+            <div class="info">
+                
+                <div class="validChordsInfo">
+                    <h4>Valid Chords:</h4>
+                    <h4 id="validChordsInfo"></h4>
+                </div>
+
+                <div class="indexInfo">
+                    <h4>Index:</h4>
+                    <h4 id="indexInfo"></h4>
+                </div>
+
+                <div class="notesInfo">
+                    <h4>Pitches: </h4>
+                    <h4 id="notesInfo"></h4>
+                </div>
+
+                <div class="lengthInfo">
+                    <h4>Length:</h4>
+                    <h4 id="lengthInfo"></h4>
+                </div>
+
+                <div class="vectorInfo">
+                    <h4 >Vector:</h4>
+                    <h4 id="vectorInfo"></h4>
+                </div>
+            </div>
+
+            <div id="notation-container">
+                <div class="notation" id="notation">notation</div>
+            </div>
+            
+            <div class="footer">
+                footer
+            </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
+    <script src="./assets/js/renderNotes.js"></script>
+
+    <script src="./assets/schemes/binary.js"></script>
+    
+    <script src="./assets/js/getJSON.js"></script>
+    <!-- 1. create a new interval scheme with a given interval set -->
+        <script src="./assets/js/IntervalScheme.js"></script>
+    <!-- 2. map the scheme to chords via .mapped() method  -->
+    <!-- 3. create a new filter object -->
+        <script src="./assets/js/ChordFilter.js"></script>
+    <!-- 4. Set the new filter contains, notContains and chordSize properties -->
+    <!-- 5. validChords = filter (make a function that takes a filter object and chord set as arguments and returns only valid chords) -->
+        <script src="./assets/js/process.js"></script>
+        <script src="./assets/js/CurrentChord.js"></script>
+
+
+        <!-- UI -->
+        <script src="./assets/js/buttons.js"></script>
+
+    <script>
+        function size(){
+            console.log(window.innerWidth, window.innerHeight);
+        }
+    </script>
+</body>
+</html>
