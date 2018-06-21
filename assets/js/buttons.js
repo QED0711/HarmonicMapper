@@ -235,11 +235,7 @@ const setVectorInfo = () => {
 }
 
 const setNotesInfo = () => {
-    // let noteString = ""
-    // for(note of CURRENTCHORD.names){
-    //     noteString += `${note} `
-    // } 
-    $("#notesInfo")[0].innerText = `${CURRENTCHORD.names.join("-")}`
+    $("#notesInfo")[0].innerText = `${CURRENTCHORD.names.join(" ")}`
 };
 
 const setLengthInfo = () => {
@@ -251,7 +247,7 @@ const setIndexInfo = () => {
 }
 
 const setValidChordsInfo = () => {
-    $("#validChordsInfo")[0].innerText = `${PASSEDCHORDS.length}`
+    $("#validChordsInfo")[0].innerText = `0 - ${PASSEDCHORDS.length-1}`
 }
 
 const octaveOffset = () => {
@@ -306,8 +302,8 @@ $("#pitch").keyup(pitchOffset);
 const jumpToindex = () => {
     getOctaveOffset();
     getDisplayType();
-    if(CHORDINDEX-1 >= 0 && CHORDINDEX-1 < PASSEDCHORDS.length){
-        CURRENTCHORD = new CurrentChord(PASSEDCHORDS[CHORDINDEX-1])
+    if(CHORDINDEX >= 0 && CHORDINDEX < PASSEDCHORDS.length){
+        CURRENTCHORD = new CurrentChord(PASSEDCHORDS[CHORDINDEX])
         CURRENTCHORD.offset(OCTAVEOFFSET, PITCHOFFSET)
 
         switch(DISPLAYTYPE){
@@ -331,11 +327,11 @@ const jumpToindex = () => {
 }
 
 const setQuickIndex = () => {
-    $(".quickIndexNumber input")[0].value = CHORDINDEX+1;
+    $(".quickIndexNumber input")[0].value = CHORDINDEX;
 }
 
-$(".quickIndexNumber input")[0].onkeyup = () => {
-    CHORDINDEX = parseInt($(".quickIndexNumber input")[0].value)
+$("#quickIndexNumber")[0].onkeyup = () => {
+    CHORDINDEX = parseInt($("#quickIndexNumber")[0].value);
     jumpToindex();
 };
 
