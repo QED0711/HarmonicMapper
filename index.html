@@ -202,11 +202,11 @@
                 </div>
                
                 <div class="quickIndex">
-                    <h4>Jump to Chord </h4>
+                    <h4>Jump to Chord # :</h4>
                 </div>
 
                 <div class="quickIndexNumber">
-                    <input type="number" value="0">
+                    <input type="number" id="quickIndexNumber" value="0">
                 </div>
                 
             </div>
@@ -216,27 +216,28 @@
                 
                 <div class="validChordsInfo">
                     <h4>Valid Chords:</h4>
-                    <h4 id="validChordsInfo"></h4>
+                    
+                    <em><h4 id="validChordsInfo"></h4></em>
                 </div>
 
                 <div class="indexInfo">
-                    <h4>Index:</h4>
-                    <h4 id="indexInfo"></h4>
+                    <h4>Current Chord:</h4>
+                    <em><h4 id="indexInfo"></h4></em>
                 </div>
 
                 <div class="notesInfo">
                     <h4>Pitches: </h4>
-                    <h4 id="notesInfo"></h4>
+                    <em><h4 id="notesInfo"></h4></em>
                 </div>
 
                 <div class="lengthInfo">
                     <h4>Length:</h4>
-                    <h4 id="lengthInfo"></h4>
+                    <em><h4 id="lengthInfo"></h4></em>
                 </div>
 
                 <div class="vectorInfo">
                     <h4 >Vector:</h4>
-                    <h4 id="vectorInfo"></h4>
+                    <em><h4 id="vectorInfo"></h4></em>
                 </div>
             </div>
 
@@ -253,8 +254,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
     <script src="./assets/js/renderNotes.js"></script>
-
-    <script src="./assets/schemes/binary.js"></script>
     
     <script src="./assets/js/getJSON.js"></script>
     <!-- 1. create a new interval scheme with a given interval set -->
@@ -270,6 +269,7 @@
 
         <!-- UI -->
         <script src="./assets/js/buttons.js"></script>
+        <script src="./assets/js/mouseOver.js"></script>
 
     <script>
         function size(){
