@@ -79,6 +79,27 @@ const getVectorValues = () => {
     }
 }
 
+
+// forEach(select => {
+//     console.log(select);
+// });
+
+
+
+
+const vectorDisabled = () => {
+    let vectorSelects = $(".vectorSelect");
+    
+    for(let i = 0; i < vectorSelects.length; i++){
+        let currInputStr = "#vector" + i + "Value";
+        if(vectorSelects[i].value === "inactive"){
+            $(currInputStr).prop("disabled", true);
+        } else {
+            $(currInputStr).prop("disabled", false);
+        }
+    }
+}
+
 const getVectorSelects = () => {
     let vectorSelects = $(".vectorSelect");
     let vectorValues = getVectorValues();
@@ -297,6 +318,9 @@ $("#octave").keyup(octaveOffset);
 
 $("#pitch").click(pitchOffset);
 $("#pitch").keyup(pitchOffset);
+
+vectorDisabled(); // default sets the vectors to be disabled until changed by user
+$(".vectorSelect").on("change", vectorDisabled);
 
 
 const jumpToindex = () => {
