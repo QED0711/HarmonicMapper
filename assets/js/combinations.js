@@ -39,7 +39,7 @@ function expandVector(vectorArr){
     return intervals;
 }
 
-console.log(combinations(expandVector([1,0,2,0,4,0]), 2))
+console.log(combinations(expandVector([1,0,2,0,4,0]), 3))
 
 
 // 1, 11
