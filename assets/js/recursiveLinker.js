@@ -15,7 +15,6 @@ function pitchChain(arr, set){
     return unique(chord) ? chord : false;
 }
 
-
 function chordInfo(intervalArr, set){
     console.log
     return {
@@ -25,18 +24,16 @@ function chordInfo(intervalArr, set){
     }
 }
 
-
-
 function collectionGenerator(set){
     let structure = [];
     for(let i = 0; i < set.length; i++){
         structure.push(chordInfo([i], set));
     }
     
-    // create array for collection
+    // create array to hold all the generated chords
     let collection = [];
     
-    // create recursive function
+    // recursive function to check valid chord structures
     function intervalStacker(set, chord){ 
         // console.log(chord)
         if(!chord.pcs || chord.length > 12){
@@ -59,4 +56,8 @@ function collectionGenerator(set){
 
 // console.log(chordInfo([1,0], [4,8]))
 
-console.log(collectionGenerator([1,6]))
+console.time("generator time")
+console.log(collectionGenerator([1,2,3,4,5,6]).sort((a,b) => {
+    return a.length - b.length
+})[505604])
+console.timeEnd("generator time")
