@@ -27,32 +27,36 @@ function chordInfo(intervalArr, set){
 
 
 
-function container(set){
+function collectionGenerator(set){
     let structure = [];
     for(let i = 0; i < set.length; i++){
-        structure.push([i]);
+        structure.push(chordInfo([i], set));
     }
-    let collection = []
-    function recursiveLinker(set, chord){
-        chord = chord || chordInfo([0], set);
-        if(!chord.pcs || chord.length === 11){
+    
+    // create array for collection
+    let collection = [];
+    
+    // create recursive function
+    function intervalStacker(set, chord){ 
+        // console.log(chord)
+        if(!chord.pcs || chord.length > 12){
             return false;
         }
-        // console.log(chord)
+        collection.push(chord)
         for(let i = 0; i < set.length; i++){
-            tempStructure = [...chord.structure, i]
-            chord = chordInfo(tempStructure, set)
-            collection.push(chord)
-            recursiveLinker(set, chord)
+            newChord = chordInfo(Object.assign({}, chord, {structure: [...chord.structure, i]}).structure, set )
+            if(newChord.pcs){
+                intervalStacker(set, newChord)
+            }
         }
     }
+    
     structure.forEach(chord => {
-        chord = chordInfo(chord, set);
-
-
-        recursiveLinker(set, chord);
+        intervalStacker(set, chord);
     })
-    console.log(collection.length)
+    return collection
 }
 
-container([3, 4])
+// console.log(chordInfo([1,0], [4,8]))
+
+console.log(collectionGenerator([1,6]))
