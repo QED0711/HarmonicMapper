@@ -19,7 +19,7 @@ function chordInfo(intervalArr, set){
     console.log
     return {
         structure: intervalArr,
-        length: intervalArr.length + 1,
+        size: intervalArr.length + 1,
         pcs: pitchChain(intervalArr, set)
     }
 }
@@ -36,7 +36,7 @@ function collectionGenerator(set){
     // recursive function to check valid chord structures
     function intervalStacker(set, chord){ 
         // console.log(chord)
-        if(!chord.pcs || chord.length > 12){
+        if(!chord.pcs || chord.size > 12){
             return false;
         }
         collection.push(chord)
@@ -57,7 +57,7 @@ function collectionGenerator(set){
 // console.log(chordInfo([1,0], [4,8]))
 
 console.time("generator time")
-console.log(collectionGenerator([1,2,3,4,5,6]).sort((a,b) => {
-    return a.length - b.length
-})[505604])
+console.log(collectionGenerator([2,9, 7]).sort((a,b) => {
+    return a.size - b.size
+}))
 console.timeEnd("generator time")
