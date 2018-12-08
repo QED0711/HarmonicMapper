@@ -56,8 +56,30 @@ function collectionGenerator(set){
 
 // console.log(chordInfo([1,0], [4,8]))
 
-console.time("generator time")
-console.log(collectionGenerator([2,9, 7]).sort((a,b) => {
-    return a.size - b.size
-}))
-console.timeEnd("generator time")
+// console.time("generator time")
+// console.log(collectionGenerator([3,4]).sort((a,b) => {
+//     return a.size - b.size
+// }))
+// console.timeEnd("generator time")
+
+class HarmonicCollection{
+    constructor(...set){
+        this.set = set;
+        this.collection = collectionGenerator(set)
+    }
+
+    findByStructure(structureArr){
+        return this.collection.filter(chord => {
+            console.log("CHORD: ", chord)
+            for(let i = 0; i < chord.structure.lengt; i++){
+                if(chord.structure[i] !== structureArr[i]){
+                    return false
+                }
+                return true;
+            }
+        })
+    }
+}
+
+let binary = new HarmonicCollection(2,4)
+console.log(binary.findByStructure())
