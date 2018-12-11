@@ -154,10 +154,12 @@ let vector = new Vector([5,6,6,4,5,2])
 // console.log(v.isNull())
 // console.log(vector.toArray())
 
-console.time("Vector Calculator")
-console.log(analyze(vector, 6))
-console.timeEnd("Vector Calculator")
+// console.time("Vector Calculator")
+// console.log(analyze(vector, 6))
+// console.timeEnd("Vector Calculator")
 
 // console.log(intervalSet([0, 4, 7]))
 // console.log(unique([1,2,1]))
 // console.log(newInts([0, 4, 7]))
+
+module.exports = {Vector: Vector, analyze: analyze}
