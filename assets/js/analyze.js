@@ -33,7 +33,7 @@ function analyze(vector, setLimit = 12){
     let pcs = [0];
 
     function vectorTree(vector, pcs){
-        console.log(vector.isNull())
+        // console.log(vector.isNull())
         let intSet = intervalSet(pcs);
 
         if(intSet.pciSet.size > setLimit) return false; 
@@ -41,16 +41,16 @@ function analyze(vector, setLimit = 12){
         if(vector.isNull()){
             passedSets.push(
                 {...intSet, pcs: pcs}
-                );
+            );
             return;
         }
 
-        vector.print()
+        // vector.print()
 
         if(!vector.valid) return false; // if vector is invalid, terminate branch (base case)
         
         for(let i = 1; i <= 11; i++){ // for each pci 1-11
-            let newVector = {...vector} // copy the vector object so we can make changes without effecting the original;
+            let newVector = new Vector(vector.toArray()) // copy the vector object so we can make changes without effecting the original;
             let newPcs = [...pcs] // copy the pcs array so we can make changes without effecting the original;
             if(i <= 6){
                 if(newVector[i]){  // if newVector has ics of that class left, then...;
@@ -58,7 +58,6 @@ function analyze(vector, setLimit = 12){
                     newPcs[newPcs.length] = (newPcs[newPcs.length - 1] + i) % 12 // add that pci to the last pc of the pcs to get a new last pc
                     if(!unique(newPcs)) continue // if that causes pc repetition, continue to next iteration of the loop without calling vectorTree
                     let newInts = newIntervals(newPcs) // if we've made it this far, calculate all new ics that exist as a result of adding a new pc to the end of the pcs;
-                    debugger;
                     for(let int of newInts){ // with that list of new ics, subtract 1 from the vector for each ic
                         if(newVector[int]){ // if the vector still has an ic at that value, subtract 1 from it
                             newVector[int]--;
@@ -90,7 +89,7 @@ function analyze(vector, setLimit = 12){
             }
             
             
-            console.log(newPcs)
+            // console.log(newPcs)
             vectorTree(newVector, newPcs)
         }
     }
@@ -100,27 +99,65 @@ function analyze(vector, setLimit = 12){
 
 }
 
-let vector = {
-    1: 3,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 3,
-    6: 0,
-    valid: true,
-    print: function(){
-        console.log(counter++, `<${this[1]}, ${this[2]}, ${this[3]}, ${this[4]}, ${this[5]}, ${this[6]}>`)
-    },
-    isNull: function(){
+// let vector = {
+//     1: 3,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 3,
+//     6: 0,
+//     valid: true,
+//     print: function(){
+//         console.log(counter++, `<${this[1]}, ${this[2]}, ${this[3]}, ${this[4]}, ${this[5]}, ${this[6]}>`)
+//     },
+//     isNull: function(){
+//         for(let i = 1; i <= 6; i++){
+//             if(this[i]) return false;
+//         }
+//         return true;
+//     }
+// }
+
+class Vector{
+    constructor(icVector){
+        for(let i = 0; i < icVector.length; i++){
+            this[i + 1] = icVector[i] 
+        }
+        this.valid = true;
+    }
+
+    isNull(){
         for(let i = 1; i <= 6; i++){
             if(this[i]) return false;
         }
-        return true;
+        return true;        
+    }
+
+    print(){
+        console.log(counter++, `<${this[1]}, ${this[2]}, ${this[3]}, ${this[4]}, ${this[5]}, ${this[6]}>`)
+    }
+
+    toArray(){
+        return [this[1], this[2], this[3], this[4], this[5], this[6]]
     }
 }
 
+function setToString(set){
+    return `[${[...set].sort().toString()}]`;
+}
 
-console.log(analyze(vector, 3))
+
+
+let vector = new Vector([5,6,6,4,5,2])
+
+// let v = new Vector([1,2,3,4,5,6]);
+// console.log(v.isNull())
+// console.log(vector.toArray())
+
+console.time("Vector Calculator")
+console.log(analyze(vector, 6))
+console.timeEnd("Vector Calculator")
+
 // console.log(intervalSet([0, 4, 7]))
 // console.log(unique([1,2,1]))
 // console.log(newInts([0, 4, 7]))
